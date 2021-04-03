@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import neurolab as nl
 import os
-path = "C:/Users/mhabayeb/Documents/COMP237_Data/"
+path = "./"
 filename = 'data_perceptron.txt'
 fullpath = os.path.join(path,filename) 
 """
@@ -36,8 +36,11 @@ num_output = labels.shape[1]
 # have 2 dimensions in the input data)
 dim1 = [dim1_min, dim1_max]
 dim2 = [dim2_min, dim2_max]
+print('numoutputs', num_output)
 perceptron = nl.net.newp([dim1, dim2], num_output)
 #Train the network
+print('data shape ', data.shape)
+print('labels shape ', labels.shape)
 error_progress = perceptron.train(data, labels, epochs=100, show=20, lr=0.03)
 #Plot
 # Plot the training progress

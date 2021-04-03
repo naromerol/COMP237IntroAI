@@ -9,7 +9,7 @@ from random import seed
 from random import randrange
 from csv import reader
 import os
-path = "C:/Users/mhabayeb/Documents/COMP237_Data/"
+path = "./"
 filename = 'sonar_all_data.csv'
 fullpath = os.path.join(path,filename) 
 # Load a CSV file
@@ -68,12 +68,19 @@ def evaluate_algorithm(dataset, algorithm, n_folds, *args):
     for fold in folds:
         train_set = list(folds)
         train_set.remove(fold)
+        #this sums all values of the list... why?
+        #possible: creates union of lists
         train_set = sum(train_set, [])
         test_set = list()
+                
+        #the current fold is used as testing data
+        #a score is calculated for each fold
         for row in fold:
             row_copy = list(row)
             test_set.append(row_copy)
             row_copy[-1] = None
+            
+            
         predicted = algorithm(train_set, test_set, *args)
         actual = [row[-1] for row in fold]
         accuracy = accuracy_metric(actual, predicted)

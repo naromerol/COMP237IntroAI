@@ -18,8 +18,10 @@ def train_weights(train, l_rate, n_epoch):
 			prediction = predict(row, weights)
 			error = row[-1] - prediction
 			sum_error += error**2
+            #update bias weight
 			weights[0] = weights[0] + l_rate * error
 			for i in range(len(row)-1):
+                #update each weight
 				weights[i + 1] = weights[i + 1] + l_rate * error * row[i]
 		print('>epoch=%d, lrate=%.3f, error=%.3f' % (epoch, l_rate, sum_error))
 	return weights

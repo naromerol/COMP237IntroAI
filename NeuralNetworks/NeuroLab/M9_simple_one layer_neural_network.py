@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import neurolab as nl
 import os
-path = "C:/Users/mhabayeb/Documents/COMP237_Data/"
+path = "./"
 filename = 'data_simple_nn.txt'
 fullpath = os.path.join(path,filename) 
 text = np.loadtxt(fullpath)

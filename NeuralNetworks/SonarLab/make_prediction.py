@@ -8,7 +8,7 @@ Created on Thu Aug 13 13:40:27 2020
 # Make a prediction with weights
 # Both inputs are lists
 def predict(row, weights):
-    activation = weights[0]
+    activation = weights[0] #initially assigned bias
 #    print(activation)
 #    print(len(row)-1)
     for i in range(len(row)-1):
@@ -17,6 +17,7 @@ def predict(row, weights):
     return 1.0 if activation >= 0.0 else 0.0
  
 # test predictions
+# data as list of lists [x1, x2, y]
 dataset = [[2.7810836,2.550537003,0],
     [1.465489372,2.362125076,0],
     [3.396561688,4.400293529,0],
@@ -27,6 +28,8 @@ dataset = [[2.7810836,2.550537003,0],
     [6.922596716,1.77106367,1],
     [8.675418651,-0.242068655,1],
     [7.673756466,3.508563011,1]]
+
+#weights correspond to [bias, est_x1, est_x2]
 weights = [-0.1, 0.20653640140000007, -0.23418117710000003]
 for row in dataset:
     prediction = predict(row, weights)
